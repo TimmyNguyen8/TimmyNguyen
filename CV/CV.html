@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Chuyên Nghiệp - Nguyễn Hoàng Nhật Thắng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #343a40;
+            --text-color: #495057;
+            --light-bg: #f8f9fa;
+            --white-bg: #ffffff;
+            --border-color: #e9ecef;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            padding: 30px 15px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .cv-container {
+            width: 100%;
+            max-width: 1000px;
+            background-color: var(--white-bg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 40px 50px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-picture {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-family: var(--heading-font);
+            font-size: 3.2em;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            margin-top: 25px;
+            font-size: 1em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px 25px;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .contact-info i {
+            font-size: 1.1em;
+            color: var(--primary-color);
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px 50px;
+            gap: 40px;
+        }
+
+        .left-column, .right-column {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .section h2 {
+            font-family: var(--heading-font);
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-left: 6px solid var(--primary-color);
+            padding-left: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .about-me p {
+            text-align: justify;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        .about-me ul {
+            padding-left: 0;
+            list-style: none;
+        }
+        .about-me ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.95em;
+        }
+        .about-me ul li:last-child {
+            border-bottom: none;
+        }
+        .about-me ul li strong {
+            color: var(--secondary-color);
+            flex-shrink: 0;
+            margin-right: 10px;
+        }
+        .about-me ul li span {
+            text-align: right;
+        }
+
+        .objective-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .entry { /* Dùng chung cho education, certification, interests */
+            margin-bottom: 25px;
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .entry:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry h3 {
+            font-family: var(--heading-font);
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .entry p {
+            margin-bottom: 8px;
+            font-size: 1em;
+            color: #6c757d;
+        }
+
+        .entry ul {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.95em;
+            color: #555;
+        }
+        .entry ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+        .entry ul li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--primary-color);
+            font-size: 0.8em;
+        }
+
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .interests-list li {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 400;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .interests-list li i {
+            font-size: 1em;
+            color: #fff; /* Icons in interest tags should be white */
+        }
+
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-tag:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Không cần hidden-section và toggle-btn nữa vì không có phần dự án ẩn */
+        /* .hidden-section { display: none; } */
+        /* .toggle-btn { ... } */
+        /* .button-container { ... } */
+
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                padding: 30px;
+                gap: 30px;
+            }
+
+            .left-column, .right-column {
+                min-width: unset;
+                width: 100%;
+            }
+
+            .header {
+                padding: 30px;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .header p {
+                font-size: 1.1em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .contact-info a {
+                margin: 0;
+                justify-content: center;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
+            .entry h3 {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            .cv-container {
+                border-radius: 0;
+                box-shadow: none;
+            }
+            .header {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .profile-picture {
+                width: 100px;
+                height: 100px;
+            }
+            .main-content {
+                padding: 20px;
+                gap: 20px;
+            }
+            .section h2 {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header class="header">
+            <img src="N:\CV\anh\gen-h-z6654938994828_4b61539e399934c03b7216e9d4452d88.jpg" alt="Ảnh đại diện" class="profile-picture">
+
+            <h1>Nguyễn Hoàng Nhật Thắng</h1>
+            <p>Sinh viên Ngành IT</p>
+            <div class="contact-info">
+                <a href="mailto:tn5884108@gmail.com"><i class="fas fa-envelope"></i> tn5884108@gmail.com</a>
+                <a href="tel:+84812183083"><i class="fas fa-phone"></i> 0812.183.083</a>
+                <a href="http://maps.google.com/?q=7/1+H%C3%A0n+Thuy%C3%AAn" target="_blank"><i class="fas fa-map-marker-alt"></i> 7/1 Hàn Thuyên</a>
+                <a href="https://www.facebook.com/share/1AZ8GKxbEi/?mibextid=qi2Omg" target="_blank"><i class="fab fa-linkedin"></i> Facebook</a>
+                <a href="https://sinhvien.cddl.edu.vn/thong-tin-sinh-vien.html" target="_blank"><i class="fab fa-github"></i> Trang cá nhân cao đẳng đà lạt</a>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="left-column">
+                <section class="section about-me">
+                    <h2>Về tôi</h2>
+                    <p class="objective-text">
+                        Sinh viên ngành IT với nền tảng vững chắc về C++, HTML và tư duy logic. Luôn khao khát học hỏi các công nghệ mới, đặc biệt trong lĩnh vực AI, để đóng góp vào môi trường làm việc chuyên nghiệp, năng động. Mục tiêu ngắn hạn là tìm kiếm cơ hội thực tập hoặc vị trí fresher, áp dụng kiến thức đã học vào thực tế, đồng thời phát triển chuyên sâu về lập trình và giải quyết vấn đề.
+                    </p>
+                    <ul>
+                        <li><strong>Tuổi:</strong> <span>21</span></li>
+                        <li><strong>Ngày sinh:</strong> <span>15/03/2003</span></li>
+                        <li><strong>Nghề nghiệp:</strong> <span>Sinh viên Ngành IT</span></li>
+                    </ul>
+                </section>
+
+                <section class="section skills">
+                    <h2>Kỹ năng</h2>
+                    <div class="skills-list">
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">AI (Trí tuệ nhân tạo)</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript (Cơ bản)</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Tư duy logic</span>
+                        <span class="skill-tag">Làm việc nhóm</span>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-column">
+                <section class="section education">
+                    <h2>Học vấn</h2>
+                    <div class="entry education-entry">
+                        <h3>Sinh viên Ngành IT</h3>
+                        <p><strong>[Tên Trường Đại học/Cao đẳng]</strong>, [Thành phố] | [Năm Bắt đầu] – [Năm dự kiến Tốt nghiệp]</p>
+                        <ul>
+                            <li>Điểm trung bình: [GPA nếu có, ví dụ: 3.5/4.0]</li>
+                            <li>Các môn học nổi bật: Cấu trúc dữ liệu và giải thuật, Cơ sở dữ liệu, Lập trình hướng đối tượng, Nhập môn Trí tuệ nhân tạo.</li>
+                            <li>Tham gia [Tên câu lạc bộ/hoạt động sinh viên nếu có]</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section certifications">
+                    <h2>Chứng chỉ & Khóa học</h2>
+                    <div class="entry">
+                        <h3>Công nghệ thông tin-Trung cấp</h3>
+                        <p>Tổ chức cấp:Cao Đẳng Đà Lạt | 2/3 năm</p>
+                        <ul>
+                            <li>Học về chuyên ngành công nghệ thông tin cơ bản, kỹ năng về excel,CSS,HTML,SQL,C++</li>
+                        </ul>
+                    </div>
+                    </section>
+
+                     </main>
+
+        <footer class="footer">
+            © 2025 Nguyễn Hoàng Nhật Thắng. Mọi quyền được bảo lưu.
+        </footer>
+    </div>
+
+    <script>
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const toggleButton = document.getElementById('toggleProjects');
+        //     const projectsSection = document.getElementById('projectsSection');
+        //
+        //     if (toggleButton && projectsSection) {
+        //         toggleButton.addEventListener('click', function() {
+        //             projectsSection.classList.toggle('hidden-section');
+        //             if (projectsSection.classList.contains('hidden-section')) {
+        //                 toggleButton.textContent = 'Hiển thị Dự án';
+        //             } else {
+        //                 toggleButton.textContent = 'Ẩn Dự án';
+        //             }
+        //         });
+        //     }
+        // });
+    </script>
+</body>
+</html>
